@@ -96,10 +96,20 @@ void play(chessboard* game)
     char pos1[3];
     scanf("%s",pos1);
     int ipos1=(int)pos1[0]-97+8*(7-(int)pos1[1]+49);
+    if (ipos1<0 | ipos1>63 | (*game).colors[ipos1]=='0')
+    {
+        printf("position incorrecte");
+        return;
+    }
     printf("%d\n",ipos1);
     char pos2[3];
     scanf("%s",pos2);
     int ipos2=(int)pos2[0]-97+8*(7-(int)pos2[1]+49);
+    if (ipos2<0 | ipos2>63 )
+    {
+        printf("position incorrecte");
+        return;
+    }
     printf("%d\n",ipos2);
     (*game).colors[ipos2]=(*game).colors[ipos1];
     (*game).pieces[ipos2]=(*game).pieces[ipos1];
@@ -114,6 +124,8 @@ int main()
     chessboard game;
     initboard(&game);
     printboard(game);
+    printf("%d",(int)'0');
+    int i=0;
     play(&game);
     printboard(game);
     return 0;
