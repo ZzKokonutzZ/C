@@ -6,7 +6,7 @@ struct chess
     char pieces[64];
     int colors[64];
 };
-typedef struct chess chessboard;
+typedef struct chess chessboard; 
 
 void color(int value)
 {
